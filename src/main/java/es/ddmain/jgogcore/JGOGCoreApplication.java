@@ -1,13 +1,13 @@
-package es.ddmain.jgog_core;
+package es.ddmain.jgogcore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JgogCoreApplication {
+public class JGOGCoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JgogCoreApplication.class, args);
+		SpringApplication.run(JGOGCoreApplication.class, args);
 	}
 
 }
