@@ -1,6 +1,7 @@
 package es.ddmain.jgogcore.utils;
 
 import es.ddmain.jgogcore.enums.Lang;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tools.jackson.core.type.TypeReference;
@@ -13,9 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Slf4j
 public class ConfigManager {
-
-    private static final Logger logger = LoggerFactory.getLogger(ConfigManager.class);
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final Path configFile = AppPaths.getConfigFile();
@@ -42,12 +42,12 @@ public class ConfigManager {
         Files.writeString(configFile, json);
     }
 
-    public Optional<String> getLang() {
+    public String getLang() {
         Object lang = config.get("lang");
         if (!(lang instanceof String)) {
-            return Optional.of(Lang.EN.getValue());
+            return Lang.EN.getValue();
         }
-        return Optional.of((String) lang);
+        return (String) lang;
     }
 
     public boolean setLang(String lang) {
@@ -56,7 +56,7 @@ public class ConfigManager {
             saveConfig();
             return true;
         } catch (IOException e) {
-            logger.error("Error saving after assigning the language: "+ e.getMessage(), e );
+            log.error("Error saving after assigning the language: "+ e.getMessage(), e );
             return false;
         }
     }
@@ -75,7 +75,7 @@ public class ConfigManager {
             saveConfig();
             return true;
         } catch (IOException e) {
-            logger.error("Error saving after assigning the version: "+ e.getMessage(), e );
+            log.error("Error saving after assigning the version: "+ e.getMessage(), e );
             return false;
         }
     }

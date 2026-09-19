@@ -4,8 +4,6 @@ import es.ddmain.jgogcore.commands.DBCommand;
 import es.ddmain.jgogcore.commands.InitCommand;
 import es.ddmain.jgogcore.commands.StatusCommand;
 import es.ddmain.jgogcore.utils.VersionUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.info.BuildProperties;
 import org.springframework.stereotype.Component;
 import picocli.CommandLine;
 

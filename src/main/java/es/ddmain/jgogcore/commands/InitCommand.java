@@ -6,6 +6,7 @@ import es.ddmain.jgogcore.i18n.Messages;
 import es.ddmain.jgogcore.utils.AppPaths;
 import es.ddmain.jgogcore.utils.ConfigManager;
 import es.ddmain.jgogcore.utils.VersionUtil;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import picocli.CommandLine;
 
@@ -22,17 +23,11 @@ import java.util.concurrent.Callable;
         mixinStandardHelpOptions = true,
         description = "Start and configure the system"
 )
+@AllArgsConstructor
 public class InitCommand implements Callable<Integer> {
 
     private final Messages messages;
     private final ConfigManager configManager;
-
-
-    public InitCommand(Messages messages, ConfigManager configManager){
-        this.messages = messages;
-        this.configManager = configManager;
-    }
-
 
     @Override
     public Integer call() {

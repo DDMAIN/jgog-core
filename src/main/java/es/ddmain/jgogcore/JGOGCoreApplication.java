@@ -4,6 +4,7 @@ import es.ddmain.jgogcore.factory.SpringBeanFactory;
 import es.ddmain.jgogcore.i18n.Messages;
 import es.ddmain.jgogcore.utils.ConfigManager;
 import es.ddmain.jgogcore.utils.VersionUtil;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,20 +21,13 @@ import java.util.Arrays;
 import java.util.Locale;
 
 @SpringBootApplication
+@AllArgsConstructor
 public class JGOGCoreApplication implements CommandLineRunner {
 
 	private final BuildProperties buildProperties;
 	private final RootCommand rootCommand;
 	private final SpringBeanFactory springBeanFactory;
 	private final Messages messages;
-
-	public JGOGCoreApplication(BuildProperties buildProperties, RootCommand rootCommand,
-							   SpringBeanFactory springBeanFactory, Messages messages) {
-		this.buildProperties = buildProperties;
-		this.rootCommand = rootCommand;
-		this.springBeanFactory = springBeanFactory;
-		this.messages = messages;
-	}
 
 	public static void main(String[] args) {
 
